@@ -8,6 +8,7 @@ import { HomePage } from "@/types/app.types";
 import { News } from "@/types/app.types";
 import Sports from "./components/Sports";
 import Headline from "./components/Headline";
+import Link from "next/link";
 
 export default function Home(
   { headline, trending, sports }: HomePage,
@@ -36,14 +37,16 @@ export default function Home(
         The Indian Express
       </h1>
 
-      <div className="flex w-full pl-96 text-gray-700 mx-1 py-1 font-bold bg-slate-400">
+      <div className="flex w-full pl-8 text-gray-700 mx-1 py-1 font-bold bg-slate-400">
         {/* TOPBAR */}
-        <ul>
-          <li className="float-left px-4">home</li>
+        <ul className="pl-96">
+          <li className="float-left px-4 ">home</li>
           <li className="float-left px-4">about</li>
           <li className="float-left px-4">contact</li>
           <li className="float-left px-4">new</li>
+          {/* <li className="float-left px-4 text-white ring-2 ring-blue-700 ml-96">create new poost</li> */}
         </ul>
+          <Link href="create-news" className="float-left px-4 text-white ring-2 ring-blue-700 ml-96">create new poost</Link>
       </div>
       <div className="m-2 flex flex-row  ">
         <div className=" h-screen w-2/3 m-2 ">
