@@ -9,6 +9,7 @@ import { News } from "@/types/app.types";
 import Sports from "./components/Sports";
 import Headline from "./components/Headline";
 import Link from "next/link";
+import CreateNews from "./create-news/CreateNews";
 
 export default function Home(
   { headline, trending, sports }: HomePage,
@@ -46,7 +47,7 @@ export default function Home(
           <li className="float-left px-4">new</li>
           {/* <li className="float-left px-4 text-white ring-2 ring-blue-700 ml-96">create new poost</li> */}
         </ul>
-          <Link href="create-news" className="float-left px-4 text-white ring-2 ring-blue-700 ml-96">create new poost</Link>
+          <Link href="/create-news" className="float-left px-4 text-white ring-2 ring-blue-700 ml-96">create new post</Link>
       </div>
       <div className="m-2 flex flex-row  ">
         <div className=" h-screen w-2/3 m-2 ">
