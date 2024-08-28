@@ -1,14 +1,29 @@
-'use client';
-import { useState } from "react";
+"use client";
+import { FormEvent, useState } from "react";
+import { News } from "@/types/app.types";
+import axios from "axios";
 
 export default function CreateNews() {
   const [tittle, setTittle] = useState("");
   const [imageURl, setImageURL] = useState("");
   const [description, setDescription] = useState("");
 
-  const handleSubmit=()=>{
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>): Promise<void> => {
+    event.preventDefault();
+    const newsPost: News = {
+      id: 0,
+      title: tittle,
+      content: description,
+      imageURL: imageURl,
+    };
+    try{
+    const result = await axios.post("http://localhost:3001/news", newsPost);
+    alert("data stored.......")
 
-  }
+    } catch(error) {
+      console.error("Error creating todo:", error);
+    }
+  };
 
   return (
     <div className="mb-10  ml-96 mt-2 border-4 border-red-950 p-8 mr-96  text-xl">
@@ -35,7 +50,7 @@ export default function CreateNews() {
         <textarea
           name=""
           id=""
-          onChange={(e)=>setDescription(e.target.value)}
+          onChange={(e) => setDescription(e.target.value)}
           className="border-2 border-black my-4 h-24 w-64"
         ></textarea>
         <br />
