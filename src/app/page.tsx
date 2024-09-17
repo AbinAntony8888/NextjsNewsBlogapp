@@ -10,6 +10,7 @@ import Sports from "./components/Sports";
 import Headline from "./components/Headline";
 import Link from "next/link";
 import CreateNews from "./create-news/CreateNews";
+import NewsPage from "./components/NewsPage";
 
 export default function Home(
   { headline, trending, sports }: HomePage,
@@ -76,7 +77,7 @@ export default function Home(
 
           {/* SPORTS */}
 
-          <div className="h-screen">
+          <div className="h-full">
             {homePage?.sports.map((sport) => (
               <Sports
                 key={sport.id}
@@ -89,6 +90,7 @@ export default function Home(
           </div>
         </div>
       </div>
+      <NewsPage/>
     </div>
   );
 }
